@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block content %}
+<div align="center">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <h3 class="class_bg_color">{{ message }}</h3>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+</div>
+<h1 class="class_green class_center class_padding">Guess the word correctly according to the given clue</h1>
+<div align="center">
+    <a class="btn btn-primary" href="{{ url_for('start') }}" role="button">Start</a>
+</div>
+{% endblock %}

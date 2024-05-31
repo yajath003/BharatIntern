@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Start{% endblock %}
+{% block content %}
+<div align="center">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <h3 class="class_bg_color">{{ message }}</h3>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1><span class="class_red">Clue:</span><span class="class_green"> {{ clue }}</span></h1>
+    <p><h1 class="class_brown">{{ blank }}</h1></p>
+    <br>
+    <form method="post">
+        <input type="text" name="text" maxlength="1">
+        <input type="submit" class="btn btn-danger" value="Guess">
+    </form>
+    <p><h5>Score: {{ score }}</h5></p>
+    <p><h6>Chances left: {{ errors }}</h6></p>
+    <a class="btn btn-primary" href="{{ url_for('index') }}" role="button">Restart</a>
+</div>
+{% endblock %}
